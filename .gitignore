@@ -1,0 +1,8 @@
+*.pyc
+/config/nginx/
+/confi/db/
+logs/
+.env
+*.sql
+
+

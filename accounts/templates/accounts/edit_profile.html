@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+
+    {% block head %}
+    <title>Edit Profile</title>
+    <link href="/static/accounts/edit_profile.css" type="text/css" rel="stylesheet">
+    {% endblock %}
+
+    {% block body %}
+        {% block first %}
+      
+    
+        <div class = "edform">
+            <h1 class = "text-uppercase">Edit Profile</h1>
+                <form method = "post">
+                    {% csrf_token %}
+                    {% load widget_tweaks %}
+                        {% for hidden in form.hidden_fields %}
+                            {{ hidden }}
+                        {% endfor %}
+
+                        {% for field in form.visible_fields %}
+                            <div class="form-group">
+                            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                {{ field|add_class:'form-control'}}
+                                {% for error in field.errors %}
+                                    <span class="help-block">{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                        <input type="submit" value="Submit">
+                </form>
+        </div>
+ 
+        {% endblock %}
+        {% block second %}
+        {% endblock %}
+    {% endblock %}
+    

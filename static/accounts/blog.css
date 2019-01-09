@@ -1,0 +1,192 @@
+/* require import statements to work with ckeditor */
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+.eznav{
+    margin-bottom:50px;
+    margin-top:40px;
+    color:rgb(156, 154, 154);
+    font-family: 'Orbitron', sans-serif;
+    font-size:15px;
+    text-transform: uppercase;
+}
+
+#bcrumb{
+    padding:2px;
+}
+
+#bctitle{
+    color:black;
+}
+
+#bcrumb a:hover{
+    text-decoration: none;
+    color:black;
+    transition-timing-function: ease-in-out;
+    transition-duration:0.1s;
+    }
+
+#first h1{
+    font-family: 'Orbitron', sans-serif;
+    color: black;
+    position:relative;
+    font-size: 30px;
+}
+
+#first p{
+    color:black;
+    max-width:600px;
+    word-wrap: break-word;
+}
+    
+#first p a{
+    text-decoration: underline;
+}
+
+#first a:hover{
+    transition:ease-in 0.1s;
+    text-decoration:none;
+}
+
+/*block code formatting done by codesnippet plugin for ckeditor, inline coding done by default 'computer code' style in ckeditor*/
+
+
+
+/* div holding userclockcomment */
+
+#userclockcomment{
+    margin-top:10px;
+    margin-bottom:12px;
+}
+
+/* fontawesome icons regarded as fonts so can use css properties like color and font-size on them */
+
+.fa-user{
+    font-size:10px;
+    color:black;
+    margin-right:2px;
+    
+}
+
+.fa-clock-o{
+    font-size:10px;
+    color: black;
+    margin-left:6px;
+    margin-right:5px;
+
+}
+
+.fa-comment{
+    font-size:10px;
+    color:black;
+    margin-left:5px;
+    margin-right:2px;
+}
+
+.fa-thumbs-up{
+   color:black;
+  
+}
+
+
+.fa-thumbs-down{
+    color:black;   
+}
+
+
+#likescount{
+    font-family: 'Orbitron', sans-serif;
+}
+
+#dislikescount{
+    font-family: 'Orbitron', sans-serif;
+}
+
+.fa.fa-angle-right{
+    font-size:12px;
+    padding:6px;
+    
+}
+/* needed to create a span which is used for inline elements as i couldnt style the text next to the icons */
+
+#users{
+    font-family: 'Orbitron', sans-serif;
+    font-size:13px;
+    text-transform: uppercase;
+}
+
+#clocks{
+    font-family: 'Orbitron', sans-serif;
+    font-size:13px;
+    text-transform: uppercase;
+}
+
+#comments{
+    font-family: 'Orbitron', sans-serif;
+    font-size:13px;
+    text-transform: uppercase;
+}
+
+
+/* between hr tags after article inc like and dislikes */
+
+ul{
+    list-style-type: none;
+    padding-left: 0;
+    
+}​
+
+ul li{
+    display: inline-block;
+
+}
+
+
+#disqus_thread{
+    max-width:600px;
+}
+ 
+
+button{    
+    background-color:rgba(133, 253, 253, 0.1);
+    padding-top:1px;
+    padding-bottom: 1px;
+    border-style: solid;
+    border-color:rgba(25, 196, 196,0.1);
+    text-transform: uppercase;
+}
+
+button:hover{
+    border-color:rgb(205, 243, 243);
+    transition:ease 0.7s;
+    transition-duration:0.3s;
+}
+
+#tagz{
+    color:black;
+    font-family: 'Orbitron', sans-serif;
+    font-size:13px;
+}
+
+#tagz:hover{
+    transition:ease-in 2s;
+    
+} 
+
+#second{
+    margin-top:40px;
+
+}
+@media only screen and (max-width: 768px) {
+  
+
+    .container form{
+        width:320px;
+    }
+    
+    img{
+        max-width: 100%;
+        height:auto;
+        display:block;
+    }
+}  
