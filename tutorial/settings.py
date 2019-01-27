@@ -1,47 +1,18 @@
 import os
 
 import environ
-root = environ.Path(__file__) - 3 # three folder back (/a/b/c/ - 3 = /)
-env = environ.Env(DEBUG=(bool, False),) # set default values and casting
-environ.Env.read_env() # reading .env file
+root = environ.Path(__file__) - 3
+env = environ.Env(DEBUG=(bool, False),) 
+environ.Env.read_env() 
 
-
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-#/home/m/Desktop/tutorial
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-
-# SECRET_KEY = os.environ['SECRET_KEY']
 SECRET_KEY = env('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# if DEBUG:
-#    INTERNAL_IPS = ('127.0.0.1', 'localhost')
+DEBUG = False
 
-#    DEBUG_TOOLBAR_PANELS = [
-#        'debug_toolbar.panels.versions.VersionsPanel',
-#        'debug_toolbar.panels.timer.TimerPanel',
-#        'debug_toolbar.panels.settings.SettingsPanel',
-#        'debug_toolbar.panels.headers.HeadersPanel',
-#        'debug_toolbar.panels.request.RequestPanel',
-#        'debug_toolbar.panels.sql.SQLPanel',
-#        'debug_toolbar.panels.staticfiles.StaticFilesPanel',
-#        'debug_toolbar.panels.templates.TemplatesPanel',
-#        'debug_toolbar.panels.cache.CachePanel',
-#        'debug_toolbar.panels.signals.SignalsPanel',
-#        'debug_toolbar.panels.logging.LoggingPanel',
-#        'debug_toolbar.panels.redirects.RedirectsPanel',
-#    ]
 ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0']
 
-
-# Application definition
 
 INSTALLED_APPS = [
     'accounts',
@@ -100,21 +71,21 @@ TEMPLATES = [
 
 
 
+
+
 WSGI_APPLICATION = 'tutorial.wsgi.application'
 
 
 
 DATABASES = {
-    'default': env.db(), # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
+    'default': env.db(),
    
-    
 }
 
 DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
 DBBACKUP_STORAGE_OPTIONS = {'location': os.path.join(BASE_DIR, 'tutorial/backups')}
 
-# Password validation
-# https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
+
 
 AUTH__VALIDATORS = [
     {
@@ -131,10 +102,6 @@ AUTH__VALIDATORS = [
     },
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/1.11/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -145,9 +112,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
@@ -174,7 +138,7 @@ LOGIN_URL = '/account/login/'
 LOGIN_REDIRECT_URL = '/home/'
 
 LOGIN_EXEMPT_URLS = (
-    # r'^home/ajax/blogpostlikes/$',
+
     r'^account/ajax/validate_username/$',
     r'^account/logout/$',
     r'^account/register/$',
@@ -185,9 +149,8 @@ LOGIN_EXEMPT_URLS = (
 
 )
 
-EMAIL_HOST = 'localhost'
-EMAIL_PORT = 1025
 
-##python -m smtpd -n -c DebuggingServer localhost:1025
+
+
 
 

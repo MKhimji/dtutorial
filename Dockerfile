@@ -18,7 +18,7 @@ RUN apk --no-cache add shadow \
                        build-base \
                        # dev dependencies
                        sudo \
-		       git \
+		               git \
                        fish \
                        vim\
                        # Pillow dependencies

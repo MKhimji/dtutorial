@@ -49,21 +49,5 @@
 
 
 
-<!--         
-                <tr>
-                    <th>Article</th>
-                    <th>User</th>
-                    <th>Date</th>
-                    
-                </tr>
-                {% for item in djangoarticles %}
-                <tr> 
-                    <td><a href= "{% url 'home:view_blogpost_with_pk' year=item.date.year month=item.date.month day=item.date.day slug=item.slug %}">{{item.title}}</a></td>
-                    <td><a href="{% url 'accounts:view_profile_with_pk' pk=item.author.pk %}">{{item.author}}</a></td>
-                    <td>{{item.date}}</td>
-                </tr>
-                {% endfor %}
-                - {{ obj.date|date:"F j, Y" }}
-            </table> -->
 
 

@@ -135,7 +135,7 @@
         var action = like.data('action');
         var dislike = like.next();
         
-    
+        
         $.ajax({
             url: '{% url "home:blog_like" year=bpost.date.year month=bpost.date.month day=bpost.date.day slug=bpost.slug %}',
             method : 'POST',

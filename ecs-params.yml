@@ -1,0 +1,16 @@
+version: 1
+task_definition:
+  ecs_network_mode: host
+  services:
+    app:
+      cpu_shares: 100
+      mem_limit: 524288000
+    db:
+      cpu_shares: 100
+      mem_limit: 524288000
+    nginx: 
+      essential: True
+      cpu_shares: 100
+      mem_limit: 524288000
+  
+    

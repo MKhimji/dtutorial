@@ -4,5 +4,5 @@
 logs/
 .env
 *.sql
-
+.vscode/
 
