@@ -17,24 +17,18 @@
                 <span>{{ year|date:"Y" }}</span>
             </li>
         </div>
-    <!-- <ul>
-        {% for date in date_list %}
-            <li>{{ date|date }}</li>
-        {% endfor %}
-    </ul> --> 
+
         <table border = "1"> 
             <tr>
                 <th id="th1">Article</th>
                 <th id="th2">User</th>
                 <th id="th3">Date</th>
             </tr>
-            <!-- <h1>All Articles for {{ year|date:"Y" }}</h1> -->
             {% for obj in object_list %}
             <tr>
                 <td><a href= "{% url 'home:view_blogpost_with_pk' year=obj.date.year month=obj.date.month day=obj.date.day slug=obj.slug %}">
                     {{ obj.title }}</a></td>
                 <td><a href="{% url 'accounts:view_profile_with_pk' pk=obj.author.pk %}">{{obj.author|title}}</a></td>
-                <!-- "|title" is a django template function used to capitalize first letter just as the title() function is in python -->
                 <td>{{obj.date}}</td></tr>
             {% endfor %}
         </table>             

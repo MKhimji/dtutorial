@@ -3,7 +3,7 @@
 
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 
-/* breadcrumbs */
+
 
 .eznav{
     margin-bottom:50px;
@@ -75,12 +75,6 @@ button:hover{
 } 
 
 
-/*code*/
-
-
-
-
-/*user clock comment icons*/
 
 .fa-user{
     font-size:8px;
@@ -137,13 +131,6 @@ button:hover{
     text-transform: uppercase;
     
 }
-
-
-/* Blue is the content
-Green is the padding
-Orange is the border
-Red is the margin */
-
 
  @media only screen and (max-width: 768px) {
   

@@ -1,77 +1,81 @@
-{%extends 'base.html'%}
-
-{%block body%}
-
-<link href="/static/accounts/reg_form.css" type="text/css" rel="stylesheet">
+{% extends 'base.html' %}
 
 
+{% block head %}
+  <link href="/static/accounts/reg_form.css" type="text/css" rel="stylesheet">
+{% endblock %}
+{% block body %}
 
-<div class="container">
-    <form method="post" data-validate-username-url="{% url 'accounts:validate_username' %}">
-      {% csrf_token %}
-      {% load widget_tweaks %}
-      {% for hidden_field in form.hidden_fields %}
-        {{ hidden_field }}
-      {% endfor %}
+  {% block first %}
 
-      {% if form.non_field_errors %}
-        <div class="alert alert-danger" role="alert">Danger alert</div>
-          {% for error in form.non_field_errors %}
-            {{ error }}
-          {% endfor %}
-        </div>
-      {% endif %}
-      {% for field in form.visible_fields %}
-        <div class="form-group">
-          {{ field.label_tag }}
-          {% if form.is_bound %}
-            {% if field.errors %}
-                <div class="form-group has-error">
-                  {% render_field field class="form-control" %}
-                </div>
-                {% for error in field.errors %}
-                    <div class="errorlist">
-                        {{ error }}
-                    </div>
-                {% endfor %}
-            {% else %}
-                <div class="form-group has-success">
+  <div class="container">
+      <form method="post" data-validate-username-url="{% url 'accounts:validate_username' %}">
+        {% csrf_token %}
+        {% load widget_tweaks %}
+        {% for hidden_field in form.hidden_fields %}
+          {{ hidden_field }}
+        {% endfor %}
+
+        {% if form.non_field_errors %}
+          <div class="alert alert-danger" role="alert">Danger alert</div>
+            {% for error in form.non_field_errors %}
+              {{ error }}
+            {% endfor %}
+          </div>
+        {% endif %}
+        {% for field in form.visible_fields %}
+          <div class="form-group">
+            {{ field.label_tag }}
+            {% if form.is_bound %}
+              {% if field.errors %}
+                  <div class="form-group has-error">
                     {% render_field field class="form-control" %}
-                </div>
+                  </div>
+                  {% for error in field.errors %}
+                      <div class="errorlist">
+                          {{ error }}
+                      </div>
+                  {% endfor %}
+              {% else %}
+                  <div class="form-group has-success">
+                      {% render_field field class="form-control" %}
+                  </div>
+              {% endif %}
+            {% else %}
+              {% render_field field class="form-control" %}
             {% endif %}
-          {% else %}
-            {% render_field field class="form-control" %}
-          {% endif %}
-          {% if field.help_text %}
-            <small class="form-text text-muted">{{ field.help_text }}</small>
-          {% endif %}
-        </div>
-      {% endfor %}
+            {% if field.help_text %}
+              <small class="form-text text-muted">{{ field.help_text }}</small>
+            {% endif %}
+          </div>
+        {% endfor %}
 
-      <button id = "sub" type = "submit">Submit</button>
-    </form>
-    <a href="{% url 'accounts:login' %}">Login</a>
-</div>
+        <button id = "sub" type = "submit">Submit</button>
+      </form>
+      <a id ="loginlink" href="{% url 'accounts:login' %}">Login</a>
+  </div>
+  {% endblock %}
 
+  {% block second %}
+  {% endblock %}
 
-{% block javascript %}
-  <script>
-    $("#id_username").change(function () {
-      var form = $(this).closest("form");
-      $.ajax({
-        url: form.attr("data-validate-username-url"),
-        data: form.serialize(),
-        dataType: 'json',
-        success: function (data) {
-          if (data.is_taken) {
-            alert(data.error_message);
-          }
-        }
-      });
-
-    });
-  </script>
 {% endblock %}
 
+{% block javascript %}
+<script>
+  $("#id_username").change(function () {
+    var form = $(this).closest("form");
+    $.ajax({
+      url: form.attr("data-validate-username-url"),
+      data: form.serialize(),
+      dataType: 'json',
+      success: function (data) {
+        if (data.is_taken) {
+          alert(data.error_message);
+        }
+      }
+    });
 
+  });
+</script>
 {% endblock %}

@@ -9,9 +9,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = env('SECRET_KEY')
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0']
+
 
 
 INSTALLED_APPS = [
@@ -68,8 +69,6 @@ TEMPLATES = [
         },
     },
 ]
-
-
 
 
 
@@ -136,11 +135,11 @@ CKEDITOR_CONFIGS = {
 LOGIN_URL = '/account/login/'
 
 LOGIN_REDIRECT_URL = '/home/'
+LOGOUT_REDIRECT_URL = '/account/login/'
 
 LOGIN_EXEMPT_URLS = (
-
+    
     r'^account/ajax/validate_username/$',
-    r'^account/logout/$',
     r'^account/register/$',
     r'^account/reset-password/$',
     r'^account/reset-password/done/$',

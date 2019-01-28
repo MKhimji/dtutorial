@@ -12,7 +12,7 @@ from django.contrib.auth import password_validation
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(required=True)
 
-##Had to add this from usercreationform documentation becauase the help_text for password1 field wasnt rendering correctly.
+
     def __init__(self, *args, **kwargs):
         super(UserCreationForm, self).__init__(*args, **kwargs)
         self.fields['password1'].help_text = "Your password can't be too similar to your other personal information.Your password must contain at least 8 characters.Your password can't be a commonly used password.Your password can't be entirely numeric."
@@ -28,15 +28,6 @@ class RegistrationForm(UserCreationForm):
                 code='password_mismatch',
             )
         return password2
-
-
-## class meta example : Got a photo its not describing the contents
-## but rather the resolution and size, so describing the pictures
-##properties rather than the image
-
-##model = User is telling the RegistrationForm class
-##to use the User model in django.contrib.auth.models
-##and it's fields to create this custom registration form
 
 
     class Meta:
@@ -55,12 +46,6 @@ class RegistrationForm(UserCreationForm):
         )
 
 
-
-##remember that the user model only has the field username, passowrd1 and 2 defined so user only has to enter username
-## an email as we have specified that it has to be required above and the two passwords
-
-
-
     def save(self, commit=True):
         user = super(RegistrationForm, self).save(commit=False)
         user.first_name = self.cleaned_data['first_name']
@@ -72,15 +57,6 @@ class RegistrationForm(UserCreationForm):
 
         return user
 
-##save is just a name
-##every class method takes self as first argument
-##commit=True  - Go ahead and save this data to the database
-##commit = False - don't save the data onto the database yet as I have not yet finished
-##editing the data i want to store in the model
-
-##cleaned_data is a django function makes suredata is safe
-##if commit: (whether we want to save the data or not.
-##running.save runs the actual sql to store the data in the database
 
 class EditProfileForm(forms.ModelForm):
 
@@ -95,8 +71,6 @@ class EditProfileForm(forms.ModelForm):
 
         )
 
-## ChangePassword is a form that combines parts of setpasswordform and password change form so that i can customize andrender the errors
-##  correctly
 
 class ChangePassword(PasswordChangeForm):
 

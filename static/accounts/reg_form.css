@@ -1,6 +1,16 @@
+
+#first{
+    margin-top:40px;
+    } 
+    
+#first h1{
+    font-family: 'Orbitron', sans-serif;
+    }
+
+
 .container{
     position:relative;
-    top:60px;
+    top:100px;
     float:left;
 
 }
@@ -14,7 +24,7 @@
     position:relative;
     bottom:10px;
 
-}
+} 
 
 .form-group{
     width:300px;
@@ -45,4 +55,9 @@
     line-height: 15px;
     padding:1px 1px;
 
+}
+
+.container #loginlink{
+    font-family: 'Saira', sans-serif;
+    text-decoration: none;
 }

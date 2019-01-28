@@ -53,11 +53,7 @@ class LoginRequiredMiddleware:
 ##and we are comparing it to the path variable in process_view which returns account/logout
 ##so we need to remove the first / before
 
-##accounts : referring to namespace accounts
 
-        if path == reverse('accounts:logout').lstrip('/'):
-            logout(request)
-##reverse gives a string
 
 ##if user is logged in and is trying to access one of the exempt urls redirect them to the homepage
         if request.user.is_authenticated() and url_is_exempt:

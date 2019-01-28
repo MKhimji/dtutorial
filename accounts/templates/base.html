@@ -41,15 +41,18 @@
                  </li>
              </ul>
            
-            {% endif %}   
+               
          </div>
+         {% endif %}    
         </nav>
+       
 
         <div class = "row">
             <div class="container"> 
                 <div id = "first" class ="col-md-10">
                     {% block first %}{% endblock %}
                 </div>
+               
                 <div id = "second" class = "col-md-2">
                     <form action="{% url 'home:search' %}" method="get">
                         <input type="search" id="title" name="title" placeholder="Search..."/>
@@ -64,21 +67,13 @@
                     </select>
                 <hr>
                     
-
+            
                     {% block second %}{% endblock %}
             
                 </div>
             </div>
         </div>
-       
-
-              
-                
-
-
-
-
-          
+            
        
         <script
         src="https://code.jquery.com/jquery-3.1.1.min.js"

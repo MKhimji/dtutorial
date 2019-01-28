@@ -2,12 +2,10 @@ version: '3.2'
 
 services:
   app:
-    #build: .
     image: dtutorialapp
     volumes:
       - .:/app
       - static_volume:/app/static
-      #- media_volume:/app/tutorial/media
     networks:  
       - nginx_network
       - db_network 
@@ -20,8 +18,7 @@ services:
     volumes:
       - ./config/nginx/conf.d:/etc/nginx/conf.d
       - static_volume:/app/static
-      #- media_volume:/app/tutorial/media
-    depends_on:  # wait for djangoapp to be ready before starting this service
+    depends_on: 
       - app
     networks: 
       - nginx_network  
@@ -43,6 +40,5 @@ networks:
     driver: bridge
 volumes:
   static_volume:
-  #media_volume:
   db_volume:
   

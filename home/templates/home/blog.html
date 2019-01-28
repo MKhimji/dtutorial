@@ -7,8 +7,6 @@
     <link href="/static/ckeditor/ckeditor/plugins/codesnippet/lib/highlight/styles/github.css" rel="stylesheet"/>
     <link href="/static/accounts/blog.css" type="text/css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
-
-    
     {% include "taggit_templatetags2/tagcanvas_include_js_static.html" %}
   {% endblock %}
 
@@ -36,7 +34,6 @@
         <p>{{bpost.body|safe}}</p>
         
         <ul>
-            <!-- <li><a href="{% url 'home:home' %}">Mo's Blog</a></li> -->
             <li class="fa fa-thumbs-up fa-2x fa-border" aria-hidden="true" data-id="{{ like_obj.id }}" data-type="blog" data-action="like" title="Like">
                 <span id = "likescount" data-count="like">{{likes_count}}</li>
             <li class="fa fa-thumbs-down fa-2x fa-border" aria-hidden="true" data-id="{{ like_obj.id }}" data-type="blog" data-action="dislike" title="Dislike">
@@ -52,8 +49,6 @@
             {% endfor %}
         </ul>
     
-
-
         <div id="disqus_thread"></div>
     {% endblock %}
     {% block second %}
@@ -65,10 +60,6 @@
 
 
     <script>
-
-    /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
 
     var disqus_config = function () {
     this.page.url = blogpost.id = 1;  // Replace PAGE_URL with your page's canonical URL variable
@@ -91,10 +82,6 @@
     });
     </script>
 
-
-
-
-
     <script>
     function getCookie(name) {
         var cookieValue = null;
@@ -113,7 +100,6 @@
     }
     </script>
 
-
     <script>
     $(function () {
         $.ajaxSetup({
@@ -123,15 +109,13 @@
     </script>
 
 
-    <!-- must be a way 2 test this like u can test python in shell...console? -->
     <script>
     function like()
     {
-        var like = $(this);//guessing like is a like object from Like model, assigning it to $(this) so that we can have jquery functionality for like object.
-        var type = like.data('type');     // https://api.jquery.com/data/  //this code uses second part on link .data(key)
+        var like = $(this);
+        var type = like.data('type');    
         var pk = like.data('id'); 
-        // pk = like_obj.id(data-id from html above) and like_obj.id i think is like_blogpost/comment.id in my case the id is defined by year month...
-        //like  = $(this) so we got $(this).like_obj.id
+    
         var action = like.data('action');
         var dislike = like.next();
         
@@ -139,7 +123,7 @@
         $.ajax({
             url: '{% url "home:blog_like" year=bpost.date.year month=bpost.date.month day=bpost.date.day slug=bpost.slug %}',
             method : 'POST',
-            data : { 'obj' : pk }, // data to send to the server. Isnt this just the key/value pairing from data dicitionary in views?? i.e. obj = key , pk = values
+            data : { 'obj' : pk }, 
     
             success : function (json) {
                 like.find("[data-count='like']").text(json.like_count);
@@ -181,9 +165,6 @@
         $('[data-action="dislike"]').click(dislike);
     });
     </script>
-
-
-
 
   {% endblock %}
   

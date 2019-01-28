@@ -7,10 +7,6 @@ from django.conf import settings
 from django.contrib.staticfiles.handlers import StaticFilesHandler
 from django.core.wsgi import get_wsgi_application
 
-
-##namespace
-##If you have multiple apps and you want to use the same urls
-
 urlpatterns = [
     url(r'^$', views.login_redirect, name='login_redirect'),
     url(r'^admin/', admin.site.urls),
