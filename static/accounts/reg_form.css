@@ -28,11 +28,9 @@
 
 .form-group{
     width:300px;
-    font-family: 'Saira', sans-serif;
-    font-size:20px;
-    position:static;
-    top:100px;
-    left:100px;
+    font-family: 'Orbitron', sans-serif;
+    font-size:12px;
+    position:relative;
 
 }
 
@@ -47,8 +45,8 @@
 }
 
 #sub{
-    font-family: 'Saira', sans-serif;
-    font-size: 20px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 60px;
     width:90px;
     height: 25px;
     text-align: center;
@@ -57,7 +55,4 @@
 
 }
 
-.container #loginlink{
-    font-family: 'Saira', sans-serif;
-    text-decoration: none;
-}
+

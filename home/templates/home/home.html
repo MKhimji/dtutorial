@@ -21,9 +21,11 @@
         <div id = "userclockcomment">
             <span id = "users"><i class="fa fa-user" aria-hidden="true"></i><a href="{% url 'accounts:view_profile_with_pk' pk=p.author.pk %}">
                 {{p.author.username|title}}</a></span>
-                <!-- |title is django template function yo capitalize first letter of username -->
+                
             <span id = "clocks"><i class="fa fa-clock-o" aria-hidden="true"></i>{{p.date}}</span>
-            <span id = "comments"><i class="fa fa-comment" aria-hidden="true"></i><a href= "{% url 'home:view_blogpost_with_pk' year=p.date.year month=p.date.month day=p.date.day slug=p.slug %}#wellcomments"></a> comments</span>      
+            <span id = "comments"><i class="fa fa-comment" aria-hidden="true"></i><a id = "comments" href="{% url 'home:view_blogpost_with_pk' year=p.date.year month=p.date.month day=p.date.day slug=p.slug %}#disqus_thread">
+			    Comments</a></span>
+		    
         </div>                             
         <p>{{p.body|safe|truncatewords:"50"}}</p>
         <a id= "readmore" href="{% url 'home:view_blogpost_with_pk' year=p.date.year month=p.date.month day=p.date.day slug=p.slug %}"><button type = "button">Read more</button></a>
@@ -68,12 +70,21 @@
     {% endblock %}
 {% endblock %}
 
-
 {% block javascript %}
+   
 <script>$(document).ready(function() {
-  $('pre code').each(function(i, block) {
-    hljs.highlightBlock(block);
-  });
-});</script>
-{% endblock %}
+        $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+        });
+    });
+</script>
+	<script> var disqus_config = function () {
+    this.page.url = blogpost.id = 1; 
+     this.page.identifier = "{% url 'home:home' %}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+	</script>
 
+
+<script id="dsq-count-scr" src="https://muhammad-7.disqus.com/count.js" async></script>
+
+{% endblock %}
