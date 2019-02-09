@@ -8,12 +8,12 @@
     <link href="/static/accounts/login.css" type="text/css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Mr+Dafoe" rel="stylesheet">
     <script src="https://use.fontawesome.com/e8a74bbcce.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
         <div class="container">
-            <h1>Mo's Blog</h1>
+	   <h1>X2UDOT</h1>
             <form method = "post">
             {% csrf_token %}
             {% load widget_tweaks %}
@@ -23,17 +23,28 @@
                 <div class="form-group" id="password">
                  <label for="{{ password.id_for_label }}">{% render_field form.password class="form-control" placeholder="Enter Password" %}</label>
                 </div>
-                <span><input type="submit" class="btn btn-info" value="LOGIN" id="submit"></span>
-            </form>
+	   
 
-            <a id="one" href="{% url 'accounts:reset_password' %}">Reset Password</a>
-            <a id="two" href="{% url 'accounts:register' %}">Register</a>
+		<div id="sub"><input type="submit" class="btn btn-info" value="LOGIN" id="submit"></div>
+	    
+	
+	    <div id="socialbar">	
             {% load static %}
             <a id = "social" href = "http://www.facebook.com"><img src="{% static "set/facebook.png" %}"/>
             <a id = "social" href = "http://www.twitter.com"><img src="{% static "set/twitter.png" %}"/>
             <a id = "social" href = "http://www.youtube.com"><img src="{% static "set/youtube.png" %}"/>
             <a id = "social" href = "http://www.linkedin.com"><img src="{% static "set/linkedin.png" %}"/>
             <a id = "social" href = "http://www.googleplus.com"><img src="{% static "set/google+.png" %}"/>
+	    <div id="register">
+            <a id="one" href="{% url 'accounts:reset_password' %}">Reset Password</a>
+	    <a id="two" href="{% url 'accounts:register' %}">Register</a>
+	    </div>
+	    
+	    </div>
+             
+
+	   </form>
+
         </div>
 
 

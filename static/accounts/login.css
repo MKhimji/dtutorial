@@ -2,7 +2,7 @@ body{
     background: url(http://wallpapercave.com/wp/b4NResJ.jpg)no-repeat center center;
     background-size:cover;
     background-position: 0px 0px;
-
+    
 }
 
 
@@ -11,57 +11,57 @@ body{
     top:150px;
     height:400px;
     width:500px;
-    padding-top:90px;
+    padding-top:80px;
     margin: 0 auto;
     background-color:rgba(102, 255, 255,0.1)
 }
 
-
 .container h1{
-    color:white;
-    font-size: 60px;
-    font-family: 'Orbitron', sans-serif;
-    position: relative;
-    text-shadow: 0 0 0.5px #00ffff;
-    margin:0 auto;
-    text-align:center;
-    bottom:20px;
+	color:white;
+	font-size: 30px;
+	font-family: 'Orbitron', sans-serif;
+	position: relative;
+        text-shadow: 0 0 0.5px #00ffff;
+	margin:0 auto;
+	text-align:center;
+	bottom:5px;
+	right:5px;
 
 
-}
+				}
 
 
-.container #one{
-    display:block;
-    position:absolute;
-    left:20px;
-    top:360px;
-    font-family: 'Orbitron', sans-serif;
-    color:white;
-    text-decoration:none;
-    font-size:11.5px;
-
-}
-
-
-.container #two{
-    display:block;
-    position:absolute;
-    left:425px;
-    top:360px;
+#one{
+   
+    position:relative;
+    top:35px;
     font-family: 'Orbitron', sans-serif;
     color:white;
     text-decoration:none;
     font-size:11.5px;
 
+}
+
+
+#two{
+    
+    
+    position:relative;
+    left:300px;
+    top:35px;
+    font-family: 'Orbitron', sans-serif;
+    color:white;
+    text-decoration:none;
+    font-size:11.5px;
+
 
 }
 
-.container #one:hover{
+#one:hover{
     text-shadow: 0 0 2px #00ffff;
 
 }
-.container #two:hover{
+#two:hover{
     text-shadow: 0 0 2px #00ffff;
 
 }
@@ -70,14 +70,19 @@ body{
 .form-group{
     width:200px;
     margin:0 auto;
+    height:50px;
+     
+    
+
 }
 
 .form-group input{
 
     font-size:12px;
     font-family: 'Orbitron', sans-serif;
-    margin-bottom:20px;
+    margin-bottom:30px;
     padding-left:25px;
+    height: 28px;
 }
 
 
@@ -92,23 +97,27 @@ body{
 
 #username::before{
     content: "\f007";
-    position:absolute;
     font-family: "FontAwesome";
     font-size:20px;
     color:#ff6666;
     padding-left:5px;
     padding-top:3px;
+    position:relative;
+    top:30px;
 
     }
 
 #password::before{
     content: "\f023";
-    position:absolute;
+   
     font-family: "FontAwesome";
     font-size:21px;
     color: #ff6666;
     padding-left:5px;
     padding-top:3px;
+    position:relative;
+    top:30px;
+
 
     }
 
@@ -116,15 +125,15 @@ body{
 
 #submit{
     font-family: 'Orbitron', sans-serif;
-    font-size: 18px;
-    position:absolute;
-    top: 275px;
-    left:189px;
+    font-size: 12px;
+    
+    
+    margin:auto;
+
     color:#00ffff;
-    width:118px;
-    height: 37px;
-    padding: 1px 1px;
-    line-height:15px;
+    height: 23px;
+    padding: 2px 2px;
+    width:130px;
     border-color: #00ffff;
     text-align: center;
 
@@ -144,11 +153,14 @@ body{
 
 .container #social{
     position:relative;
-    top:60px;
+    top:88px;
     left:145px;
     text-decoration:none;
 
 }
+
+
+
 
 
 .container img{
@@ -156,5 +168,74 @@ body{
     height:30px;
 }
 
+#sub{
+left: 165px;
+top:35px;
+position:relative;
 
 
+}
+    
+    
+#register{
+position:relative;
+top:30px;
+}  
+
+#socialbar{
+position:relative;
+top:30px;
+
+}
+
+@media only screen and (max-width: 768px) {
+  
+   
+   body{
+    background: url(http://wallpapercave.com/wp/b4NResJ.jpg)no-repeat;
+ 
+     }
+      
+    img{
+       max-width: 100%;
+       height:auto;     
+    }
+
+   .container{
+     top:50px;
+      width:350px;
+      position:relative;
+
+    } 
+
+   .container img {
+     width:30px;
+     height:25px;
+   } 
+
+  #sub{
+    left:90px;
+    top:35px;
+    position:relative;
+ }
+
+  #two{
+  left:158px;
+  font-size:12px;
+  }
+
+  #one{
+  right:10px;
+  font-size:12px;
+  }
+  .container #social{
+    position:relative;
+    top:20px;
+    left:70px;
+    text-decoration:none;
+
+}
+
+
+}
+   

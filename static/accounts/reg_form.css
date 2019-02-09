@@ -1,58 +1,39 @@
 
 #first{
-    margin-top:40px;
+	margin-top:40px;
     } 
-    
+        
 #first h1{
-    font-family: 'Orbitron', sans-serif;
-    }
+	  font-family: 'Orbitron', sans-serif;
+	 }
 
 
-.container{
-    position:relative;
-    top:100px;
-    float:left;
-
-}
-
-
-
-.container h1{
-    font-family: 'Saira', sans-serif;
-    font-size:30px;
-    font-weight:bold;
-    position:relative;
-    bottom:10px;
-
-} 
 
 .form-group{
-    width:300px;
-    font-family: 'Orbitron', sans-serif;
-    font-size:12px;
-    position:relative;
+	    width:300px;
+	        font-family: 'Orbitron', sans-serif;
+		    font-size:12px;
+		        position:relative;
 
-}
+		}
 
 .form-group small{
-    color:grey;
-    font-size:12px;
-}
+	    color:grey;
+	        font-size:12px;
+	}
 
 
 .errorlist{
-    color:red;
-}
+	color:red;
+    	  }
 
 #sub{
-    font-family: 'Orbitron', sans-serif;
-    font-size: 60px;
-    width:90px;
-    height: 25px;
-    text-align: center;
-    line-height: 15px;
-    padding:1px 1px;
+	font-family: 'Orbitron', sans-serif;
+	font-size: 14px;
+	width:90px;
+	height: 25px;
+	text-align: center;
+	line-height: 15px;
+	padding:1px 1px;
 
-}
-
-
+	}
