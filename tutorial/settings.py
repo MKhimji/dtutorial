@@ -119,9 +119,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'tutorial/media')
 
-EMAIL_HOST = 'email-smtp.eu-west-1.amazonaws.com'
-EMAIL_PORT = 465
-EMAIL_USE_SSL = True
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+
 
 
 CKEDITOR_UPLOAD_PATH = 'Screenshots/'
