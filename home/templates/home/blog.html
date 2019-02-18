@@ -26,9 +26,9 @@
             <span id = "users"><i class="fa fa-user" aria-hidden="true"></i> <a href="{% url 'accounts:view_profile_with_pk' pk=bpost.author.pk %}">
             {{bpost.author.username|title}}</a></span>
             <span id = "clocks"><i class="fa fa-clock-o" aria-hidden="true"></i>{{bpost.date}}</span>
-	    <span id = "comments"><i class="fa fa-comment" aria-hidden="true"></i></span>
-	    <a id = "comments" href="{% url 'home:view_blogpost_with_pk' year=bpost.date.year month=bpost.date.month day=bpost.date.day slug=bpost.slug %}#disqus_thread">
-		    Comments</a>
+	    <span id = "fontcomments"><i class="fa fa-comment" aria-hidden="true"></i></span>
+	    <span><a href="{% url 'home:view_blogpost_with_pk' year=bpost.date.year month=bpost.date.month day=bpost.date.day slug=bpost.slug %}#disqus_thread">
+			    Comments</a></span>
 	</div> 
         <p>{{bpost.body|safe}}</p>
         
