@@ -167,11 +167,19 @@ hr {
 input[type='submit']{ 
     font-family: 'Orbitron', sans-serif; 
     margin-top:10px;
-    font-size:18px;
-    padding-bottom:0px;
-    padding-left:1px;
-    padding-right:1px;
-}
+    font-size:20px;
+    width:80px;
+    text-align: center;
+    padding:1px 1px;   
+
+
+
+ 
+    
+   } 
+
+
+
 
 
 input[type='search']{ 
