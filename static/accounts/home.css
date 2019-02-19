@@ -3,7 +3,7 @@
 
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 
-
+/* breadcrumbs */
 
 .eznav{
     margin-bottom:50px;
@@ -66,7 +66,7 @@ button:hover{
 #readmore{
     color:black;
     font-family: 'Orbitron', sans-serif;
-    font-size:14px;
+    font-size:13px;
 }
 
 
@@ -75,6 +75,12 @@ button:hover{
 } 
 
 
+/*code*/
+
+
+
+
+/*user clock comment icons*/
 
 .fa-user{
     font-size:8px;
@@ -92,9 +98,9 @@ button:hover{
 
 
 .fa-comment{
-    font-size:5px;
-    margin-left:6px;
-    margin-right:5px;
+    font-size:8px;
+    margin-left:5px;
+    margin-right:2px;
 }
 
 .fa.fa-angle-right{
@@ -106,7 +112,7 @@ button:hover{
 /* needed to create a span which is used for inline elements as i couldnt style the text next to the icons */
 
 #users{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     font-size:12px;
     text-transform: uppercase;
     
@@ -119,18 +125,25 @@ button:hover{
 
 }
 
-#clocks{ 
-    font-family: 'Montserrat', sans-serif;
+#clocks{
+    font-family: 'Orbitron', sans-serif;
     font-size:12px;
     text-transform: uppercase;
 }
 
-#fontcomment{
-
-    font-family: 'Montserrat', sans-serif;
+#comments{
+    font-family: 'Orbitron', sans-serif;
     font-size:12px;
-    text-transform: uppercase; 
+    text-transform: uppercase;
+    
 }
+
+
+/* Blue is the content
+Green is the padding
+Orange is the border
+Red is the margin */
+
 
  @media only screen and (max-width: 768px) {
   

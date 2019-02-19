@@ -95,9 +95,6 @@ li a {
 
 
 
-/* Code icon LHS */
-
-
 #brand{
     transition:ease 0.15s;
     transition-duration:0.5s;
@@ -159,32 +156,31 @@ hr {
 }
 #selection{
     font-family: 'Orbitron', sans-serif;
-    font-size:20px;
+    font-size:14px;
+    width:180px;
+    text-align: center;
+    line-height: 20px;
+    padding:2px 2px;
+    margin-top:4px;
 
 
 }
 
 input[type='submit']{ 
-    font-family: 'Orbitron', sans-serif; 
-    margin-top:10px;
-    font-size:20px;
-    width:80px;
-    text-align: center;
-    padding:1px 1px;   
-
-
-
- 
-    
-   } 
-
-
+         font-family: 'Orbitron', sans-serif;
+	 font-size: 14px;
+	 width:180px;
+         text-align: center;
+	 line-height: 15px;
+	 padding:2px 2px;
+	 margin-top:4px;
+	        }
 
 
 
 input[type='search']{ 
     font-family: 'Orbitron', sans-serif;
-    font-size:20px;
+    font-size:14px;
 }
 
 @media only screen and (max-width: 768px) {
