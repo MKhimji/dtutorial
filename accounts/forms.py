@@ -4,30 +4,16 @@ from accounts.models import UserProfile
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm, SetPasswordForm
 from django.utils.translation import gettext as _
 from django.contrib.auth import password_validation
+from django.contrib.auth.password_validation import validate_password
+
+
 
 
 
 
 
 class RegistrationForm(UserCreationForm):
-    email = forms.EmailField(required=True)
 
-
-    def __init__(self, *args, **kwargs):
-        super(UserCreationForm, self).__init__(*args, **kwargs)
-        self.fields['password1'].help_text = "Your password can't be too similar to your other personal information.Your password must contain at least 8 characters.Your password can't be a commonly used password.Your password can't be entirely numeric."
-
-
-    def clean_password2(self):
-        password1 = self.cleaned_data.get("password1")
-        password2 = self.cleaned_data.get("password2")
-        if password1 and password2 and password1 != password2:
-            self.add_error('password1', 'Re-enter password')
-            raise forms.ValidationError(
-                self.error_messages['password_mismatch'],
-                code='password_mismatch',
-            )
-        return password2
 
 
     class Meta:
@@ -44,6 +30,27 @@ class RegistrationForm(UserCreationForm):
 
 
         )
+    
+    email = forms.EmailField(required=True)
+    
+    def __init__(self, *args, **kwargs):
+       super(UserCreationForm, self).__init__(*args, **kwargs)
+       self.fields['password1'].help_text = "Your password can't be too similar to your other personal information.Your password must contain at least 8 characters.Your password can't be a commonly used password.Your password can't be entirely numeric."
+
+    def clean_password2(self):
+        password1 = self.cleaned_data.get("password1")
+        password2 = self.cleaned_data.get("password2")
+        if len(password1) < 8:
+            self.add_error('password1', 'Password must be at least 8 characters')
+            raise forms.ValidationError(_('Password must be at least 8 characters'), code = 'password_too_short')
+        if password1 and password2 and password1 != password2:
+            self.add_error('password1', 'Re-enter password')
+            raise forms.ValidationError(
+                self.error_messages['password_mismatch'],
+                code='password_mismatch',
+            )
+        return password2
+ 
 
 
     def save(self, commit=True):

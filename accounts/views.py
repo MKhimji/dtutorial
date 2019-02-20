@@ -13,6 +13,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash, authenticate, login
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.password_validation import validate_password
+from django.core.exceptions import ValidationError
 
 from home.models import BlogPost
 from django.forms.models import model_to_dict
@@ -24,11 +26,14 @@ def register(request):
             form.save()
             username = request.POST.get('username')
             password = request.POST.get('password1')
+     
+ 
             user = authenticate(
                 request,
                 username=username,
                 password=password
             )
+
             login(request, user)
             return redirect(reverse('home:home'))
     else:
