@@ -52,7 +52,7 @@ class RegistrationForm(UserCreationForm):
         )
 
 
-    def clean_password2(self):
+    def clean_password1(self):
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")   
 
@@ -62,10 +62,18 @@ class RegistrationForm(UserCreationForm):
                 self.error_messages['password_mismatch'],
                 code='password_mismatch',
             )
+
+        special_characters = "[~\!@#\$%\^&\*\(\)_\+{}\":;'\[\]]"
+        if not any(char.isdigit() for char in password1):
+            raise forms. ValidationError(_('Password must contain at least 1 digit.'))
+        if not any(char.isalpha() for char in password1):
+            raise forms.ValidationError(_('Password must contain at least 1 letter.'))
+        if not any(char in special_characters for char in password1):
+            raise forms.ValidationError(_('Password must contain at least 1 special character.'))
+
+
+
         return password2
-
-
-
  
 
 
