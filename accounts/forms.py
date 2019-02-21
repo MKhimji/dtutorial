@@ -40,23 +40,21 @@ class RegistrationForm(UserCreationForm):
         raise forms.ValidationError("Email already exists")
       return email
    
-    password1 = forms.CharField(
-            widget=forms.PasswordInput(),label= 'Password',min_length=8)
-    
-    def __init__(self, *args, **kwargs):
-       super(UserCreationForm, self).__init__(*args, **kwargs)
-       self.fields['password1'].help_text = "Your password can't be too similar to your other personal information.Your password must contain at least 8 characters.Your password can't be a commonly used password.Your password can't be entirely numeric."
+    password1 = forms.RegexField(
+            widget=forms.PasswordInput,
+            label= 'Password',
+            min_length=8, 
+            regex = r'[\w+]{8,}', 
+            help_text = "Your password can't be too similar to your other personal information. "
+            "Your password must contain at least 8 characters.Your password can't be a commonly "
+            "used password.Your password can't be entirely numeric."
 
+        )
 
 
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")
-        password2 = self.cleaned_data.get("password2")
-        try:
-          password_validation.validate_password(password1, self.instance)
-        except forms.ValidationError as error:
-          self.add_error('password1', error)
-        return password1
+        password2 = self.cleaned_data.get("password2")   
 
         if password1 and password2 and password1 != password2:
             self.add_error('password1', 'Re-enter password')
