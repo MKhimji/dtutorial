@@ -18,11 +18,23 @@
     transition-duration:0.1s;
     }
 
+.fa.fa-angle-right{
+    font-size:12px;
+    padding:6px;
+    
+}
+
+
+#first h1{
+    font-family: 'Orbitron', sans-serif;
+    text-transform : uppercase;
+}
 
 
 #first #fullname {
-    font-size:12px;
+    font-size:10px;
     font-family: 'Orbitron', sans-serif;
+    font-style: italic;
 
     
 }
@@ -35,20 +47,14 @@
 
 }
 
-#first a{
+#first #articlelink{
 
-font-family: 'Orbitron', sans-serif;
-text-decoration:none;
+	font-family: 'Orbitron', sans-serif;
+	text-decoration:none;
+	font-size:11px;
 
 
 }
 
 
-.fa.fa-angle-right{
-    font-size:12px;
-    padding:6px;
-    
- 
-}
-
-
+   

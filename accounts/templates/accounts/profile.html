@@ -28,9 +28,13 @@
 	{% endif %}
 
 	<h1>{{user}}</h1>
-	<span id = "fullname">{{ user.first_name|title}}&nbsp;{{user.last_name|title}}</span>
-	<hr id = titlehr>	
-	<a href="{% url 'accounts:view_profile_with_pk_entries' pk=user.pk %}">Articles</a>
+	<hr id = "titlehr">
+	<span id = "fullname">{{ user.first_name|title}}&nbsp;{{user.last_name|title}}, joined on {{user.date_joined}}</span>
+	
+	<hr id = "titlehr">	
+	<a id = "articlelink" href="{% url 'accounts:view_profile_with_pk_entries' pk=user.pk %}">Articles</a>
+
+	<hr id = "titlehr">	
 	{% if user.userprofile.image %}
 	<img src="{{user.userprofile.image.url}}" width = "240">
 	{% endif %}
