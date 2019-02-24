@@ -100,9 +100,14 @@ class EditProfileForm(forms.ModelForm):
         fields = (
             'email',
             'first_name',
-            'last_name',
-
+            'last_name'
+            
         )
+    
+    email = forms.EmailField(
+            label=_("Email"),
+            widget=forms.EmailInput(attrs={'autofocus': True})
+            )
 
 
 class ChangePassword(PasswordChangeForm):

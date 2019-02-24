@@ -10,27 +10,32 @@
     {% block body %}
         {% block first %}
       
-    
+        
+        <div class = "eznav">
+            <li>        
+                <span id = "bcrumb"><a href="{% url 'home:home' %}">Blog</a></span><i class="fa fa-angle-right fa-sm" aria-hidden="true"></i>
+		<span id = "bceditprofile">Edit Profile</span>
+            </li>
+        </div>
         <div class = "edform">
-            <h1 class = "text-uppercase">Edit Profile</h1>
-                <form method = "post">
-                    {% csrf_token %}
-                    {% load widget_tweaks %}
-                        {% for hidden in form.hidden_fields %}
-                            {{ hidden }}
-                        {% endfor %}
+	  <form method = "post">
+	    {% csrf_token %}
+	    {% load widget_tweaks %}
+		{% for hidden in form.hidden_fields %}
+		    {{ hidden }}
+		{% endfor %}
 
-                        {% for field in form.visible_fields %}
-                            <div class="form-group">
-                            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                                {{ field|add_class:'form-control'}}
-                                {% for error in field.errors %}
-                                    <span class="help-block">{{ error }}</span>
-                                {% endfor %}
-                            </div>
-                        {% endfor %}
-                        <input type="submit" value="Submit">
-                </form>
+		{% for field in form.visible_fields %}
+		    <div class="form-group">
+		    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+			{{ field|add_class:'form-control'}}
+			{% for error in field.errors %}
+			    <span class="help-block">{{ error }}</span>
+			{% endfor %}
+		    </div>
+		{% endfor %}
+		<input type="submit" value="Submit">
+	  </form>
         </div>
  
         {% endblock %}

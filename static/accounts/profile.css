@@ -1,14 +1,54 @@
-.prform{
+.eznav{
+    margin-bottom:50px;
+    margin-top:40px;
+    color:rgb(156, 154, 154);
     font-family: 'Orbitron', sans-serif;
-   
+    font-size:15px;
+    text-transform: uppercase;
 }
 
-#first{
-    margin-top:40px;
-    } 
-    
-#first h1{
-    font-family: 'Orbitron', sans-serif;
-   
+#bcrumb{
+    padding:2px;
+}
+
+#bcrumb a:hover{
+    text-decoration: none;
+    color:black;
+    transition-timing-function: ease-in-out;
+    transition-duration:0.1s;
     }
+
+
+
+#first #fullname {
+    font-size:12px;
+    font-family: 'Orbitron', sans-serif;
+
+    
+}
+
+#titlehr{
+	position:relative;
+	margin-top:5px;
+	width:500px;
+	padding:0px;
+
+}
+
+#first a{
+
+font-family: 'Orbitron', sans-serif;
+text-decoration:none;
+
+
+}
+
+
+.fa.fa-angle-right{
+    font-size:12px;
+    padding:6px;
+    
+ 
+}
+
 

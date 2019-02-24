@@ -26,12 +26,16 @@
     transition-duration:0.1s;
     }
 
+#first h1{
+    width:600px;
+}
+
 
 #first h1 a{
     font-family: 'Orbitron', sans-serif;
     color:black;
     position:relative;
-    font-size: 30px;
+    font-size: 25px;
     text-decoration:none;
 
 }

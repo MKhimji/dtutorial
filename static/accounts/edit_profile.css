@@ -1,10 +1,23 @@
-#first{
+.eznav{
+    margin-bottom:50px;
     margin-top:40px;
-} 
-
-#first h1{
+    color:rgb(156, 154, 154);
     font-family: 'Orbitron', sans-serif;
+    font-size:15px;
+    text-transform: uppercase;
 }
+
+#bcrumb{
+    padding:2px;
+}
+
+#bcrumb a:hover{
+    text-decoration: none;
+    color:black;
+    transition-timing-function: ease-in-out;
+    transition-duration:0.1s;
+    }
+
 
 
 .form-group{

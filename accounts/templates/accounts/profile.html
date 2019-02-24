@@ -11,30 +11,31 @@
     {% block body %}
         {% block first %}
 
-        <div class = "prform">
-            
-                {% if messages %}
-                {% for message in messages %}
-                <div class = "" role = "alert">
-                    <center>{{ message }}</center>
-                </div>
-                {% endfor %}
-                {% endif %}
-                <h1 class = "text-uppercase">Profile</h1>
-                <p>Username: {{user}}</p>
-                <p>First name: {{user.first_name}}</p>
-                <p>Last name: {{user.last_name}}</p>
-                <p>City: {{ user.userprofile.city }}</p>
-            
-                <p>About: {{ user.userprofile.description }}</p>
-                 
-                
-                
-                {% if user.userprofile.image %}
-                <img src="{{user.userprofile.image.url}}" width = "240">
-                {% endif %}
         
+	<div class = "eznav">
+            <li>        
+                <span id = "bcrumb"><a href="{% url 'home:home' %}">Blog</a></span><i class="fa fa-angle-right fa-sm" aria-hidden="true"></i>
+		<span id = "bcprofile">Profile</span>
+            </li>
         </div>
+            
+	{% if messages %}
+	{% for message in messages %}
+		<div class = "" role = "alert">
+		    <center>{{ message }}</center>
+		</div>
+	{% endfor %}
+	{% endif %}
+
+	<h1>{{user}}</h1>
+	<span id = "fullname">{{ user.first_name|title}}&nbsp;{{user.last_name|title}}</span>
+	<hr id = titlehr>	
+	<a href="{% url 'accounts:view_profile_with_pk_entries' pk=user.pk %}">Articles</a>
+	{% if user.userprofile.image %}
+	<img src="{{user.userprofile.image.url}}" width = "240">
+	{% endif %}
+        
+        
         {% endblock %}
         {% block second %}
     

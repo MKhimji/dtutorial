@@ -65,6 +65,18 @@ def view_profile(request, pk=None):
     args = {'user': user, 'message': storage}
     return render(request, 'accounts/profile.html', args)
 
+def view_profile_entries(request, pk):
+    
+    user=User.objects.get(pk=pk)
+    user_articles = BlogPost.objects.filter(author=user)
+    user_articles_list = list(BlogPost.objects.filter(author = user).values_list('title', flat=True))
+    args = {'user':user, 'user_articles':user_articles}
+   
+    return render(request, 'accounts/profile_entries.html', args)
+    
+
+
+
 def edit_profile(request):
     user=User.objects.get(id=request.user.id)
     if request.method == 'POST':
