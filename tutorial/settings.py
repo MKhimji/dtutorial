@@ -11,7 +11,7 @@ SECRET_KEY = env('SECRET_KEY')
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', '35.178.71.105', 'x2udot.com']
 
 
 

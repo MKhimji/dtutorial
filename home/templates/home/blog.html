@@ -56,6 +56,13 @@
   
   {% block javascript %}
 
+  
+   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+   <script src="/static/base/js/main.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
+
+
 
     <script>
 
@@ -76,13 +83,6 @@
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
     <script id="dsq-count-scr" src="https://muhammad-7.disqus.com/count.js" async></script>
-
-    <script>$(document).ready(function() {
-        $('pre code').each(function(i, block) {
-        hljs.highlightBlock(block);
-        });
-    });
-    </script>
 
     <script>
     function getCookie(name) {

@@ -72,17 +72,19 @@
 
 {% block javascript %}
    
-<script>$(document).ready(function() {
-        $('pre code').each(function(i, block) {
-        hljs.highlightBlock(block);
-        });
-    });
-</script>
-	<script> var disqus_config = function () {
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="/static/base/js/main.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+<script> var disqus_config = function () {
     this.page.url = blogpost.id = 1; 
-     this.page.identifier = "{% url 'home:home' %}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    this.page.identifier = "{% url 'home:home' %}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
-	</script>
+</script>
 
 
 <script id="dsq-count-scr" src="https://muhammad-7.disqus.com/count.js" async></script>

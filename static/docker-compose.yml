@@ -26,7 +26,7 @@ services:
     networks: 
       - nginx_network  
   db: 
-    image: dtutorialdb
+    image: mkhimji/projectdb:v1
     env_file:
       - .env
     restart: always

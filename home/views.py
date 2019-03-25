@@ -30,10 +30,10 @@ def home(request):
         # dictionary like object  containing HTTP GET Parameters . So we are setting the page variable to represent a key value pair, 'page' being the key and 1 being the value
         
         # t = BlogPost.objects.annotate(year=Extract('date', 'year')).values_list('date', flat=True)
-        x = BlogPost.objects.annotate(year_stamp=Extract('date', 'year')).values_list('year_stamp', flat=True) #With extract you can only get the year month day as number 
+       # x = BlogPost.objects.annotate(year_stamp=Extract('date', 'year')).values_list('year_stamp', flat=True) #With extract you can only get the year month day as number 
         #so need to find a way to extract month as a 3 letter word. Is there a way i can just translate the blogpost month to a 2 digit month and then use django 
         #templating language to comnvert month into word
-        t = list(x.distinct())
+       # t = list(x.distinct())
         #doing it this way means ill have to add this to every view. how would i even add it to a page in accounts as blogpost model is a home model.
 
              
@@ -53,7 +53,7 @@ def home(request):
 
   
         
-        args = {'allposts' : all_posts,'paginator':paginator,'t':t}
+        args = {'allposts' : all_posts,'paginator':paginator}
         return render(request, 'home/home.html', args)  
 
         
@@ -61,8 +61,8 @@ def taggd(request,tag):
     if request.method == 'GET':
         
         # tag = BlogPost.objects.values_list('tags', flat=True).get(pk=1)
-        q = BlogPost.objects.filter(tags__name__in=[tag])
-        args = {'q':q,'tag':tag}
+        qtag = BlogPost.objects.filter(tags__name__in=[tag])
+        args = {'qtag':qtag,'tag':tag}
    
 
         return render(request,'home/taggedblogposts.html',args)   

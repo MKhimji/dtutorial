@@ -59,15 +59,11 @@
                         <input type="submit" value="Submit">
                     </form>
                 <hr>
-                    <select name="menu" id="selection">
-                        <option selected disabled>Archive</option>
-                        {% for i,v in s %}
-                            <option value="{% url 'home:blogpost_month_archive' year=v month=i %}"><a href="{% url 'home:blogpost_month_archive' year=v month=i %}">{{i}} {{v}}</a></option>
-                        {% endfor %}   
-                    </select>
-                <hr>
+
+               
+		<select name="menu"  id = "selectdate"></select>	
                     
-            
+		           
                     {% block second %}{% endblock %}
             
                 </div>
@@ -79,16 +75,68 @@
         src="https://code.jquery.com/jquery-3.1.1.min.js"
         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
         crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script src="https://use.fontawesome.com/cdfd602f6e.js"></script>
-        <script src="/static/ckeditor/ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $("#selection").change(function() {
-                    location = $("#selection option:selected").val();
-                });
-            });
-        </script>
+	<link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+     
+
+        
+
+    
+	<script>//loop through each element i, if youre not at the last iteration of the forloop, put a comma after each element. So is this the same as saying put comma at the end of every element in q except the last one?
+		var n =[{% for el in q %}"{{ el|safe }}"{% if not forloop.last %},{% endif %}{% endfor %}];
+                
+                var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+		
+		var dynamicSelect = document.getElementById("selectdate");
+	
+		n.forEach(function(entry){
+			var a = new Date(entry);
+
+		 	var amonth = months[a.getMonth()];
+			var ayear = a.getFullYear();
+			var c = amonth + " " + ayear;
+		
+			var newOption = document.createElement("option");
+			newOption.text = c;
+			dynamicSelect.add(newOption);
+			var selectOption = dynamicSelect.options[dynamicSelect.selectedIndex];
+			var lastSelected = localStorage.getItem('dynamicSelect');
+
+			if(lastSelected) {
+			    dynamicSelect.value = lastSelected; 
+			}
+
+			dynamicSelect.addEventListener("change", function(){
+			   lastSelected = dynamicSelect.options[dynamicSelect.selectedIndex].value;
+			   localStorage.setItem('dynamicSelect', lastSelected);
+				})				
+			});
+			
+			
+		document.getElementById("selectdate").addEventListener("click", function(){
+			
+			var url  = "{% url 'home:blogpost_month_archive' year=2018 month='Feb' %}";
+			var year = $(this).val().slice(4,8);
+			var month = $(this).val().slice(0,3);
+			document.location.href = url.replace('2018', year).replace('Feb', month);
+		
+	 		 				
+					});
+
+	</script>
+
+
+
+
+
+
+
+
+                    
         {% block javascript %}
         {% endblock %}
         <footer>
@@ -98,3 +146,6 @@
 </html>
 
 
+<html>
+  
+    

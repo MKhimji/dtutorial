@@ -2,6 +2,42 @@
 
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 
+
+pre{
+    display: inline-flex;
+    font-family: monospace;
+    padding: 0px;
+    margin-bottom: 8px;
+    font-size: 13px;
+    line-height:1.3;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    background-color:none;
+    border:0px;
+    border-radius:0px;
+    
+}   
+
+
+code{
+    font-family: monospace;
+    padding: 0px;
+    margin: 0px;
+    font-size: 13px;
+    line-height: 1.3;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    background-color:none;
+    border:0px;
+    border-radius:0px;
+    max-width:600px;
+    
+    
+}   
+
+
 .eznav{
     margin-bottom:50px;
     margin-top:40px;
@@ -186,14 +222,33 @@ padding-left: 0;
 
 @media only screen and (max-width: 768px) {
   
-
-    .container form{
-        width:320px;
-    }
+	#first h1{
+		max-width:350px; 
+		}
+	.container form{
+        	width:320px;
+   	 }
     
-    img{
-        max-width: 100%;
-        height:auto;
-        display:block;
-    }
+	img{
+        	max-width: 100%;
+        	height:auto;
+	        display:block;
+	}
+
+    	pre{
+	   	 overflow-x: auto;
+    	}
+
+    	pre code{
+	   	 overflow-wrap: normal;
+	    	 white-space: pre;
+	}
+ 
+       
+   	 code{
+    
+   	 max-width:320px;
+    	}
+    
+
 }  

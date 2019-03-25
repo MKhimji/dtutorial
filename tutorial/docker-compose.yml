@@ -1,0 +1,54 @@
+# docker-compose -f ~/home/m/Desktop/dtutorial/docker-compose.ecs1.yml
+
+#First working docker-compose file for ECS. Updated since in dtutorial folder.
+
+version: '3.0'
+
+services:
+  app:
+    #build: .
+    image: mkhimji/dtutorialapp:v4
+    env_file:
+      - .env
+    #volumes:
+      #- .:/app
+      #- static_volume:/app/static
+      #- media_volume:/app/tutorial/media
+    #networks:  
+      #- nginx_network
+      #- db_network 
+    #links:
+      #- db
+  nginx:
+    image: mkhimji/dtutorialnginx:v2
+    ports:
+      - "80:80"
+    #volumes:
+      #- ./config/nginx/conf.d:/etc/nginx/conf.d
+      #- static_volume:/app/static
+      #- media_volume:/app/tutorial/media
+    #links:  # wait for djangoapp to be ready before starting this service
+      #- app
+    #networks: 
+      #- nginx_network  
+  db: 
+    image: mkhimji/dtutorialdb:v1
+    env_file:
+      - .env
+    #restart: always
+    ports:
+      - "5432:5432"
+    #volumes:
+      #- db_volume:/var/lib/postgresql/data/
+    #networks: 
+      #- db_network
+#networks: 
+  #nginx_network:
+    #driver: bridge
+  #db_network:
+    #driver: bridge
+#volumes:
+  #static_volume:
+  #media_volume:
+  #db_volume:
+  
