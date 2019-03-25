@@ -62,3 +62,41 @@ table, th, td {
  tr:hover{
     background-color:rgba(102, 255, 255,0.1);
 }
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+
+	table {
+	    width: 100%;
+	    padding:2px;
+	    font-family: 'Abel', sans-serif;
+	    font-size:10px; 
+
+	}
+
+	th {
+	    height: 20px;
+	    padding:2px;
+	    
+	}
+
+
+
+	th1{
+	    text-align:left;
+	    padding:8px;
+		}
+
+
+
+	td{
+	    padding:2px;
+
+		}
+
+
+
+}
