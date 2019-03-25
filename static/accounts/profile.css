@@ -57,4 +57,14 @@
 }
 
 
-   
+  
+@media only screen and (max-width: 768px) {
+
+
+#titlehr{
+	position:relative;
+	margin-top:5px;
+	width:200px;
+	padding:0px;
+
+}}
