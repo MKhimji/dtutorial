@@ -163,10 +163,3 @@ class VotesView(View):
             }
 
         return JsonResponse(data)
-        
-
-
-
-
-        
-           

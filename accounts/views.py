@@ -34,12 +34,12 @@ def register(request):
     if request.method =='POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            user=form.save()
-            username = request.POST.get('username')
-            password = request.POST.get('password1')
-                           
-            login(request, user)
-            return redirect(reverse('home:home'))
+          user=form.save()
+          username = request.POST.get('username')
+          password = request.POST.get('password1')
+     
+          login(request, user)     
+          return redirect(reverse('home:home'))
     else:
         form = RegistrationForm()
     args = {'form': form}

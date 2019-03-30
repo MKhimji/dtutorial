@@ -61,7 +61,9 @@
                 <hr>
 
                
-		<select name="menu"  id = "selectdate"></select>	
+		<select name="menu"  id = "selectdate">
+		
+		</select>	
                     
 		           
                     {% block second %}{% endblock %}
@@ -86,11 +88,11 @@
         
 
     
-	<script>//loop through each element i, if youre not at the last iteration of the forloop, put a comma after each element. So is this the same as saying put comma at the end of every element in q except the last one?
+	<script>
 		var n =[{% for el in q %}"{{ el|safe }}"{% if not forloop.last %},{% endif %}{% endfor %}];
                 
                 var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-		
+
 		var dynamicSelect = document.getElementById("selectdate");
 	
 		n.forEach(function(entry){
@@ -103,34 +105,31 @@
 			var newOption = document.createElement("option");
 			newOption.text = c;
 			dynamicSelect.add(newOption);
-			var selectOption = dynamicSelect.options[dynamicSelect.selectedIndex];
-			var lastSelected = localStorage.getItem('dynamicSelect');
 
-			if(lastSelected) {
-			    dynamicSelect.value = lastSelected; 
-			}
-
-			dynamicSelect.addEventListener("change", function(){
-			   lastSelected = dynamicSelect.options[dynamicSelect.selectedIndex].value;
-			   localStorage.setItem('dynamicSelect', lastSelected);
-				})				
 			});
 			
-			
-		document.getElementById("selectdate").addEventListener("click", function(){
-			
-			var url  = "{% url 'home:blogpost_month_archive' year=2018 month='Feb' %}";
-			var year = $(this).val().slice(4,8);
-			var month = $(this).val().slice(0,3);
-			document.location.href = url.replace('2018', year).replace('Feb', month);
-		
-	 		 				
-					});
-
 	</script>
 
 
+	<script>
+	
+		var dynamicSelect = document.getElementById("selectdate");
+		var lastSelected = localStorage.getItem('dynamicSelect');
 
+		if(lastSelected) {
+		    dynamicSelect.value = lastSelected; 
+                        }
+
+		dynamicSelect.addEventListener("change", function(){
+			 var url  = "{% url 'home:blogpost_month_archive' year=2018 month='Feb' %}";
+			 var year = $(this).val().slice(4,8);
+			 var month = $(this).val().slice(0,3);
+			 document.location.href = url.replace('2018', year).replace('Feb', month);
+
+			 lastSelected = dynamicSelect.options[dynamicSelect.selectedIndex].value;
+			 localStorage.setItem('dynamicSelect', lastSelected);
+                                })                              
+	</script>
 
 
 
