@@ -7,7 +7,7 @@ version: '3.0'
 services:
   app:
     #build: .
-    image: mkhimji/blogprod1:v1
+    image: mkhimji/app300319
     env_file:
       - .env
     #volumes:
@@ -20,7 +20,7 @@ services:
     #links:
       #- db
   nginx:
-    image: mkhimji/blogprod1nginx:v1
+    image: mkhimji/nginx300319
     ports:
       - "80:80"
     #volumes:
@@ -32,7 +32,7 @@ services:
     #networks: 
       #- nginx_network  
   db: 
-    image: mkhimji/blogprod1db:v1
+    image: mkhimji/db300319
     env_file:
       - .env
     #restart: always

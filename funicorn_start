@@ -15,6 +15,6 @@ set LOG_LEVEL error
 set -x DJANGO_SETTINGS_MODULE $DJANGO_SETTINGS_MODULE
 set -x PYTHONPATH $DIR:$PYTHONPATH
 
-exec /usr/local/bin/gunicorn $DJANGO_WSGI_MODULE --workers $NUM_WORKERS --bind :8000 --name $NAME --user $USER
+exec /usr/local/bin/gunicorn $DJANGO_WSGI_MODULE --workers $NUM_WORKERS --bind 127.0.0.1:8000 --name $NAME --user $USER
 
 
