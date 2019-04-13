@@ -37,8 +37,8 @@ RUN apk --no-cache add shadow \
                        postgresql-client
 
 
-RUN pip install pipenv 
-RUN pipenv install --deploy --system
+RUN python -m pip install -r requirements.txt
+
 
 
 USER m

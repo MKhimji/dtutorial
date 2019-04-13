@@ -29,7 +29,7 @@ urlpatterns = [
 
 
     url(r'^reset-password/complete/$', password_reset_complete,{'template_name': 'accounts/reset_password_complete.html'}, name='password_reset_complete'),
-    
+
     url(r'^ajax/validate_username/$', views.validate_username, name='validate_username')
 ]
 

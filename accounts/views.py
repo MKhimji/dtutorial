@@ -30,15 +30,15 @@ from django.contrib.auth.tokens import default_token_generator
 from django.template.response import TemplateResponse
 
 def register(request):
-    
+
     if request.method =='POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
           user=form.save()
           username = request.POST.get('username')
           password = request.POST.get('password1')
-     
-          login(request, user)     
+
+          login(request, user)
           return redirect(reverse('home:home'))
     else:
         form = RegistrationForm()
@@ -54,7 +54,7 @@ def validate_username(request):
     if data['is_taken']:
         data['error_message'] = 'A user with this username already exists.'
     return JsonResponse(data)
-    
+
 
 def view_profile(request, pk=None):
     storage = messages.get_messages(request)
@@ -66,14 +66,14 @@ def view_profile(request, pk=None):
     return render(request, 'accounts/profile.html', args)
 
 def view_profile_entries(request, pk):
-    
+
     user=User.objects.get(pk=pk)
     user_articles = BlogPost.objects.filter(author=user)
     user_articles_list = list(BlogPost.objects.filter(author = user).values_list('title', flat=True))
     args = {'user':user, 'user_articles':user_articles}
-   
+
     return render(request, 'accounts/profile_entries.html', args)
-    
+
 
 
 
@@ -111,7 +111,7 @@ def password_reset_confirm_view(request, uidb64=None, token=None,
                            set_password_form=PasswordResetConfirmForm,
                            post_reset_redirect="{% url' accounts:password_reset_complete' %}",
                            current_app=None, extra_context=None):
-    
+
 
     UserModel = get_user_model()
     assert uidb64 is not None and token is not None  # checked by URLconf
@@ -128,13 +128,13 @@ def password_reset_confirm_view(request, uidb64=None, token=None,
 
     if user is not None and token_generator.check_token(user, token):
         validlink = True
-        title = _('Enter new password')    
+        title = _('Enter new password')
         if request.method =='POST':
             form = set_password_form(user, request.POST)
             if form.is_valid():
                 form.save()
                 return HttpResponseRedirect(post_reset_redirect)
-                           
+
         else:
             form = set_password_form(user)
     else:
@@ -152,4 +152,4 @@ def password_reset_confirm_view(request, uidb64=None, token=None,
     if current_app is not None:
         request.current_app = current_app
 
-    return TemplateResponse(request, template_name, context)  
+    return TemplateResponse(request, template_name, context)

@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
 # Create your models here.
@@ -34,10 +35,10 @@ class UserProfileManager(models.Manager):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
-    description = models.CharField(max_length=100,default='')
-    city = models.CharField(max_length=100,default='')
-    website = models.URLField(default='')
-    phone = models.IntegerField(default=0)
+    description = models.CharField(max_length=100,default='',null=True)
+    city = models.CharField(max_length=100,default='', null=True)
+    website = models.URLField(default='', null=True)
+    phone = models.IntegerField(default=0, null=True)
     image = models.ImageField(upload_to= 'profile_image', blank=True)
 
     london = UserProfileManager()
@@ -47,31 +48,24 @@ class UserProfile(models.Model):
     def __str__(self):
         return "%s" %(self.user)
 
-##We want a UserProfile object created everytime we create a user
-##Signals
-##If the event was having just saved a new User object.
-##when that event happens, you are able to do something based on that.
-##So, in this case that thing was creating an associated UserProfile object.
+#this code works i just dont have the visual representation in django admin of userprofiles, but they are created when a user is added(checkd in shell)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        UserProfile.objects.create(user=instance)
 
-
-def create_profile(sender, **kwargs):
-    if kwargs['created']:
-        user_profile = UserProfile.objects.create(user=kwargs['instance'])
-
-post_save.connect(create_profile, sender=User)
+post_save.connect(create_user_profile, sender=User)
 
 
 
 
 
-##create_profile stuff, sender = user from post_save connect below
-##if kwargs created just means if user object has been created then create the user profile
-##instance is current user
 
 
 
-##Django will save the user object thats been created and then it will run the
-##post_save signal(which takes the create_profile function above) to create a userprofile object associated with that user
+
+
+
+
 
 
 

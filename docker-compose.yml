@@ -3,7 +3,7 @@ version: '3.2'
 services:
   app:
     build: .
-    image: dtutorialapp
+    image: devapp310319
     volumes:
       - .:/app
       - static_volume:/app/static
@@ -14,7 +14,7 @@ services:
     depends_on:
       - db
   nginx:
-    image: dtutorialnginx
+    image: devnginx310319
     ports:
       - 8000:80
     volumes:
@@ -26,7 +26,7 @@ services:
     networks: 
       - nginx_network  
   db: 
-    image: dtutorialdb
+    image: devdb310319
     env_file:
       - .env
     restart: always

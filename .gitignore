@@ -2,7 +2,16 @@
 /config/nginx/
 /confi/db/
 logs/
-.env
+*.env
 *.sql
 .vscode/
+*.coverage
+*.coveragerc
+pytest.ini
+.pytest_cache
+ecs-params.yml
+/accounts/migrations/
+/accounts/tests/
+/accounts/tests2/
+tutorial/media/profile_image
 
